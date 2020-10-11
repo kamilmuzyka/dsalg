@@ -1,37 +1,28 @@
 class Stack {
-    constructor(size) {
-        this.size = size
-        this.storage = []
+    constructor() {
+        this.collection = []
         this.top = 0
     }
 
-    empty() {
-        return this.top === 0
-    }
-
-    full() {
-        return this.top === this.size
-    }
-
     push(element) {
-        if(this.top < this.size) {
-            this.storage[this.top] = element
-            this.top = this.top + 1
-        } else {
-            throw new Error('Exception: Unable to execute push operation on a full stack')
-        }
+        this.collection.push(element)
+        this.top++
     }
 
     pop() {
-        if(this.empty() === false) {
-            this.storage.pop()
-            this.top = this.top - 1
+        if(this.top === 0) {
+            throw new Error('The stack is empty')
         } else {
-            throw new Error('Exception: Unable to execute pop operation on an empty stack')
+            this.collection.pop()
+            this.top--
         }
     }
 
     peek() {
-        return this.storage[this.top - 1]
+        return this.collection[this.top - 1]
+    }
+
+    empty() {
+        return this.top === 0
     }
 }
