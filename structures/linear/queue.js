@@ -6,6 +6,10 @@ class QueueM1 {
         this.tail = 0
     }
 
+    empty() {
+        return this.collection.length === 0
+    }
+
     enqueue(element) {
         this.collection.push(element)
         this.tail++
@@ -26,10 +30,6 @@ class QueueM1 {
         } else {
             return this.collection[this.head]
         }
-    }
-
-    empty() {
-        return this.collection.length === 0
     }
 }
 

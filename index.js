@@ -1,6 +1,5 @@
-const Stack = require('./linear/stack')
+const Stack = require('./structures/linear/stack')
 const {
     QueueM1,
     QueueM2
-} = require('./linear/queue')
-
+} = require('./structures/linear/queue')
