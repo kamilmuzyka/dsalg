@@ -4,13 +4,17 @@ class Stack {
         this.top = 0
     }
 
+    empty() {
+        return this.top === 0
+    }
+
     push(element) {
         this.collection.push(element)
         this.top++
     }
 
     pop() {
-        if (this.top === 0) {
+        if (this.empty()) {
             return 'The stack is empty'
         } else {
             this.collection.pop()
@@ -19,15 +23,11 @@ class Stack {
     }
 
     peek() {
-        if (this.top === 0) {
+        if (this.empty()) {
             return 'The stack is empty'
         } else {
             return this.collection[this.top - 1]
         }
-    }
-
-    empty() {
-        return this.top === 0
     }
 }
 

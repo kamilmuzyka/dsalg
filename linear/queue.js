@@ -12,7 +12,7 @@ class QueueM1 {
     }
 
     dequeue() {
-        if(this.tail === 0) {
+        if(this.empty()) {
             return 'The queue is empty'
         } else {
             this.collection.shift()
@@ -21,21 +21,53 @@ class QueueM1 {
     }
 
     first() {
-        return this.collection[this.head]
+        if(this.empty()) {
+            return 'The queue is empty'
+        } else {
+            return this.collection[this.head]
+        }
     }
 
     empty() {
-        return this.tail === 0
+        return this.collection.length === 0
     }
 }
 
 // Method 2 - Moving head
 class QueueM2 {
     constructor() {
-        
+        this.collection = []
+        this.head = 0
+        this.tail = 0
+    }
+
+    empty() {
+        return this.head === this.tail
+    }
+
+    enqueue(element) {
+        this.collection.push(element)
+        this.tail++
+    }
+
+    dequeue() {
+        if(this.empty()) {
+            return 'The queue is empty'
+        } else {
+            this.head++
+        }
+    }
+
+    first() {
+        if(this.empty()) {
+            return 'The queue is empty'
+        } else {
+            return this.collection[this.head]
+        }
     }
 }
 
 module.exports = {
-    QueueM1
+    QueueM1,
+    QueueM2
 }
