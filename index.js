@@ -7,3 +7,4 @@ const {
 
 // Algorithms
 const selectionSort = require('./algorithms/sorting/selection');
+const bubbleSort = require('./algorithms/sorting/bubble');
