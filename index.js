@@ -5,7 +5,10 @@ const {
     QueueM2
 } = require('./structures/linear/queue');
 
-// Algorithms
+// Sorting Algorithms
 const selectionSort = require('./algorithms/sorting/selection');
 const bubbleSort = require('./algorithms/sorting/bubble');
 const insertionSort = require('./algorithms/sorting/insertion');
+
+// Searching Algorithms
+const linearSearch = require('./algorithms/searching/linear');
