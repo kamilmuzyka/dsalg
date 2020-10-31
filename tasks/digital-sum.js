@@ -12,4 +12,4 @@ function digitalSum(n, m) {
     return ~~array[i] + digitalSum(n, i - 1);
 }
 
-module.exports = digitalSum;
+export default digitalSum;

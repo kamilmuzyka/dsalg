@@ -12,4 +12,4 @@ function selectionSort(array) {
     }
 }
 
-module.exports = selectionSort;
+export default selectionSort;

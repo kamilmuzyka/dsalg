@@ -15,4 +15,4 @@ function binarySearch(array, value) {
     return -1;
 }
 
-module.exports = binarySearch;
+export default binarySearch;

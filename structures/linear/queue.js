@@ -1,5 +1,5 @@
 // Method 1 - Fixed head
-class QueueM1 {
+export class QueueM1 {
     constructor() {
         this.collection = [];
         this.head = 0;
@@ -34,7 +34,7 @@ class QueueM1 {
 }
 
 // Method 2 - Moving head
-class QueueM2 {
+export class QueueM2 {
     constructor() {
         this.collection = [];
         this.head = 0;
@@ -65,9 +65,4 @@ class QueueM2 {
             return this.collection[this.head];
         }
     }
-}
-
-module.exports = {
-    QueueM1,
-    QueueM2
 }

@@ -10,4 +10,4 @@ function insertionSort(array) {
     }
 }
 
-module.exports = insertionSort;
+export default insertionSort;

@@ -11,4 +11,4 @@ function bubbleSort(array) {
     }
 }
 
-module.exports = bubbleSort;
+export default bubbleSort;

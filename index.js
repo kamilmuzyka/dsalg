@@ -1,15 +1,15 @@
 // Data Structures
-const Stack = require('./structures/linear/stack');
-const {
+import Stack from './structures/linear/stack.js';
+import {
     QueueM1,
     QueueM2
-} = require('./structures/linear/queue');
+} from './structures/linear/queue.js';
 
 // Sorting Algorithms
-const selectionSort = require('./algorithms/sorting/selection');
-const bubbleSort = require('./algorithms/sorting/bubble');
-const insertionSort = require('./algorithms/sorting/insertion');
+import selectionSort from './algorithms/sorting/selection.js';
+import bubbleSort from './algorithms/sorting/bubble.js';
+import insertionSort from './algorithms/sorting/insertion.js';
 
 // Searching Algorithms
-const linearSearch = require('./algorithms/searching/linear');
-const binarySearch = require('./algorithms/searching/binary');
+import linearSearch from './algorithms/searching/linear.js';
+import binarySearch from './algorithms/searching/binary.js';
