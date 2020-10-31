@@ -12,3 +12,4 @@ const insertionSort = require('./algorithms/sorting/insertion');
 
 // Searching Algorithms
 const linearSearch = require('./algorithms/searching/linear');
+const binarySearch = require('./algorithms/searching/binary');
