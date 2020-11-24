@@ -4,6 +4,7 @@ import {
     QueueM1,
     QueueM2
 } from './structures/linear/queue.js';
+import LinkedList from './structures/linear/linked-list.js';
 
 // Sorting Algorithms
 import selectionSort from './algorithms/sorting/selection.js';
