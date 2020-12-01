@@ -120,6 +120,48 @@ class BinarySearchTree {
         return right + 1;
     }
 
+    preOrder() {
+        if (this.root === null) {
+            return null;
+        }
+        let result = [];
+        const traverse = (node) => {
+            result.push(node.data);
+            node.left && traverse(node.left);
+            node.right && traverse(node.right);
+        }
+        traverse(this.root);
+        return result;
+    }
+
+    inOrder() {
+        if (this.root === null) {
+            return null;
+        }
+        let result = [];
+        const traverse = (node) => {
+            node.left && traverse(node.left);
+            result.push(node.data);
+            node.right && traverse(node.right);
+        }
+        traverse(this.root);
+        return result;
+    }
+
+    postOrder() {
+        if (this.root === null) {
+            return null;
+        }
+        let result = [];
+        const traverse = (node) => {
+            node.left && traverse(node.left);
+            node.right && traverse(node.right);
+            result.push(node.data);
+        }
+        traverse(this.root);
+        return result;
+    }
+
     includes(data) {
         let current = this.root;
         while (current) {
