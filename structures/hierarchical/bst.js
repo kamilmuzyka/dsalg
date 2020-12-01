@@ -96,6 +96,30 @@ class BinarySearchTree {
         return current.data;
     }
 
+    minHeight(node = this.root) {
+        if (node === null) {
+            return -1;
+        }
+        let left = this.minHeight(node.left);
+        let right = this.minHeight(node.right);
+        if (left < right) {
+            return left + 1;
+        }
+        return right + 1;
+    }
+
+    maxHeight(node = this.root) {
+        if (node === null) {
+            return -1;
+        }
+        let left = this.maxHeight(node.left);
+        let right = this.maxHeight(node.right);
+        if (left > right) {
+            return left + 1;
+        }
+        return right + 1;
+    }
+
     includes(data) {
         let current = this.root;
         while (current) {
@@ -110,6 +134,10 @@ class BinarySearchTree {
             }
         }
         return false;
+    }
+
+    balanced() {
+        return (this.minHeight() >= this.maxHeight() - 1);
     }
 
     print() {
