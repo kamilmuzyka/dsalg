@@ -1,4 +1,7 @@
 import util from 'util';
+import {
+    QueueM1 as Queue
+} from '../linear/queue.js';
 
 class Node {
     constructor(data, left = null, right = null) {
@@ -160,6 +163,26 @@ class BinarySearchTree {
         }
         traverse(this.root);
         return result;
+    }
+
+    levelOrder() {
+        const result = [];
+        const queue = new Queue();
+        if (this.root !== null) {
+            queue.enqueue(this.root);
+            while (queue.first()) {
+                const node = queue.dequeue();
+                result.push(node.data);
+                if (node.left !== null) {
+                    queue.enqueue(node.left);
+                }
+                if (node.right !== null) {
+                    queue.enqueue(node.right);
+                }
+            }
+            return result;
+        }
+        return null;
     }
 
     includes(data) {

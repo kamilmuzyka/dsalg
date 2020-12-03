@@ -11,22 +11,22 @@ export class QueueM1 {
     }
 
     enqueue(element) {
-        this.collection.push(element);
         this.tail++;
+        return this.collection.push(element);
     }
 
     dequeue() {
         if(this.empty()) {
-            return 'The queue is empty';
+            return null;
         } else {
-            this.collection.shift();
             this.tail--;
+            return this.collection.shift();
         }
     }
 
     first() {
         if(this.empty()) {
-            return 'The queue is empty';
+            return null;
         } else {
             return this.collection[this.head];
         }
@@ -46,13 +46,13 @@ export class QueueM2 {
     }
 
     enqueue(element) {
-        this.collection.push(element);
         this.tail++;
+        return this.collection.push(element);
     }
 
     dequeue() {
         if(this.empty()) {
-            return 'The queue is empty';
+            return null;
         } else {
             this.head++;
         }
@@ -60,7 +60,7 @@ export class QueueM2 {
 
     first() {
         if(this.empty()) {
-            return 'The queue is empty';
+            return null;
         } else {
             return this.collection[this.head];
         }
