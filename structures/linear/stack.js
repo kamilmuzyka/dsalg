@@ -9,22 +9,22 @@ class Stack {
     }
 
     push(element) {
-        this.collection.push(element);
         this.top++;
+        return this.collection.push(element);
     }
 
     pop() {
         if (this.empty()) {
-            return 'The stack is empty';
+            return null;
         } else {
-            this.collection.pop();
             this.top--;
+            return this.collection.pop();
         }
     }
 
     peek() {
         if (this.empty()) {
-            return 'The stack is empty';
+            return null;
         } else {
             return this.collection[this.top - 1];
         }

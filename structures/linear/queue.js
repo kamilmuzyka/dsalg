@@ -16,7 +16,7 @@ export class QueueM1 {
     }
 
     dequeue() {
-        if(this.empty()) {
+        if (this.empty()) {
             return null;
         } else {
             this.tail--;
@@ -25,7 +25,7 @@ export class QueueM1 {
     }
 
     first() {
-        if(this.empty()) {
+        if (this.empty()) {
             return null;
         } else {
             return this.collection[this.head];
@@ -51,15 +51,17 @@ export class QueueM2 {
     }
 
     dequeue() {
-        if(this.empty()) {
+        if (this.empty()) {
             return null;
         } else {
+            const element = this.collection[this.head];
             this.head++;
+            return element;
         }
     }
 
     first() {
-        if(this.empty()) {
+        if (this.empty()) {
             return null;
         } else {
             return this.collection[this.head];
