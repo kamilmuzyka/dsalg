@@ -11,4 +11,7 @@ import insertionSort from './algorithms/sorting/insertion.js';
 
 // Searching Algorithms
 import linearSearch from './algorithms/searching/linear.js';
-import binarySearch from './algorithms/searching/binary.js';
+import {
+    binarySearchM1,
+    binarySearchM2
+} from './algorithms/searching/binary.js';
