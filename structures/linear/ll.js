@@ -98,7 +98,6 @@ class LinkedList {
         this.size--;
     }
 
-
     removeAll() {
         this.head = null;
         this.size = 0;

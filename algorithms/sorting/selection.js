@@ -6,7 +6,7 @@ function selectionSort(array) {
                 smallest = j;
             }
         }
-        if(smallest !== i) {
+        if (smallest !== i) {
             [array[smallest], array[i]] = [array[i], array[smallest]];
         }
     }

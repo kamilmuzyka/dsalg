@@ -1,7 +1,5 @@
 import util from 'util';
-import {
-    QueueM1 as Queue
-} from '../linear/queue.js';
+import { QueueM1 as Queue } from '../linear/queue.js';
 
 class Node {
     constructor(data, left = null, right = null) {
@@ -44,7 +42,6 @@ class BinarySearchTree {
                 }
             }
             return 'Skip duplicate';
-
         };
         search(node);
         return node;
@@ -79,7 +76,7 @@ class BinarySearchTree {
             }
             node.right = removeNode(node.right, data);
             return node;
-        }
+        };
         this.root = removeNode(this.root, data);
     }
 
@@ -132,7 +129,7 @@ class BinarySearchTree {
             result.push(node.data);
             node.left && traverse(node.left);
             node.right && traverse(node.right);
-        }
+        };
         traverse(this.root);
         return result;
     }
@@ -146,7 +143,7 @@ class BinarySearchTree {
             node.left && traverse(node.left);
             result.push(node.data);
             node.right && traverse(node.right);
-        }
+        };
         traverse(this.root);
         return result;
     }
@@ -160,7 +157,7 @@ class BinarySearchTree {
             node.left && traverse(node.left);
             node.right && traverse(node.right);
             result.push(node.data);
-        }
+        };
         traverse(this.root);
         return result;
     }
@@ -202,14 +199,14 @@ class BinarySearchTree {
     }
 
     balanced() {
-        return (this.minHeight() >= this.maxHeight() - 1);
+        return this.minHeight() >= this.maxHeight() - 1;
     }
 
     print() {
         return util.inspect(this, {
             showHidden: false,
             depth: null,
-            colors: true
+            colors: true,
         });
     }
 }

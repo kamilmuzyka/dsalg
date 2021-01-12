@@ -1,9 +1,6 @@
 // Data Structures
 import Stack from './structures/linear/stack.js';
-import {
-    QueueM1,
-    QueueM2
-} from './structures/linear/queue.js';
+import { QueueM1, QueueM2 } from './structures/linear/queue.js';
 import LinkedList from './structures/linear/ll.js';
 import BinarySearchTree from './structures/hierarchical/bst.js';
 
