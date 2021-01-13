@@ -8,6 +8,7 @@ import BinarySearchTree from './structures/hierarchical/bst.js';
 import selectionSort from './algorithms/sorting/selection.js';
 import bubbleSort from './algorithms/sorting/bubble.js';
 import insertionSort from './algorithms/sorting/insertion.js';
+import mergeSort from './algorithms/sorting/merge.js';
 
 // Searching Algorithms
 import linearSearch from './algorithms/searching/linear.js';

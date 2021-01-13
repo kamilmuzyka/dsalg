@@ -26,7 +26,7 @@ export function binarySearchM2(
         return midpoint;
     }
     if (array[midpoint] > value) {
-        return binarySearchM2(array, value, start, midpoint);
+        return binarySearchM2(array, value, start, midpoint - 1);
     } else {
         return binarySearchM2(array, value, midpoint + 1, end);
     }
