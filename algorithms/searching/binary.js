@@ -1,3 +1,4 @@
+// Method 1 - Iterative
 export function binarySearchM1(array, value) {
     let start = 0;
     let end = array.length - 1;
@@ -15,6 +16,7 @@ export function binarySearchM1(array, value) {
     return -1;
 }
 
+// Method 2 - Recursive
 export function binarySearchM2(
     array,
     value,
