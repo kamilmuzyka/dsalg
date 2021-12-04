@@ -84,12 +84,12 @@ function twoNumberSum2(array, target) {
 
 /** O(1) Space | O(n) Time */
 function isValidSubsequence(array, sequence) {
-    let next = 0;
+    let sequenceIndex = 0;
     for (const number of array) {
-        if (number === sequence[next]) {
-            next++;
+        if (number === sequence[sequenceIndex]) {
+            sequenceIndex++;
         }
-        if (next === sequence.length) {
+        if (sequenceIndex === sequence.length) {
             return true;
         }
     }
@@ -102,19 +102,45 @@ function isValidSubsequence(array, sequence) {
 
 /** O(n) Space | O(n) Time */
 function sortedSquaresArray(array) {
-    const sortedSquares = new Array(array.length).fill(0);
+    const squares = new Array(array.length).fill(0);
     let left = 0;
     let right = array.length - 1;
     for (let i = array.length - 1; i >= 0; i--) {
-        const absoluteLeftValue = Math.abs(array[left]);
-        const absoluteRightValue = Math.abs(array[right]);
-        if (absoluteLeftValue >= absoluteRightValue) {
-            sortedSquares[i] = absoluteLeftValue ** 2;
+        const leftValue = array[left];
+        const rightValue = array[right];
+        if (Math.abs(leftValue) > Math.abs(rightValue)) {
+            squares[i] = leftValue ** 2;
             left++;
         } else {
-            sortedSquares[i] = absoluteRightValue ** 2;
+            squares[i] = rightValue ** 2;
             right--;
         }
     }
-    return sortedSquares;
+    return squares;
+}
+
+/** 7. Write a function that takes in a Binary Search Tree (BST) and a target
+ * integer value and returns the closest value to that target value contained in
+ * the BST. */
+
+/** O(logn) or O(n) Space | O(logn) or O(n) Time */
+function findClosestValueInBst(tree, target) {
+    return findClosestValueInBstHelper(tree, target, Infinity);
+}
+
+function findClosestValueInBstHelper(tree, target, closest) {
+    if (!tree) {
+        return closest;
+    }
+    const current = tree.value;
+    if (Math.abs(target - current) < Math.abs(target - closest)) {
+        closest = current;
+    }
+    if (target < current) {
+        return findClosestValueInBstHelper(tree.left, target, closest);
+    } else if (target > current) {
+        return findClosestValueInBstHelper(tree.right, target, closest);
+    } else {
+        return closest;
+    }
 }
