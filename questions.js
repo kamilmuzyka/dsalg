@@ -43,7 +43,7 @@ function fibonacci(n) {
  * order to obtain the target sum. You can assume that there will be at most one
  * pair of numbers summing up to the target sum. */
 
-/** O(1) Space and O(n^2) Time */
+/** O(1) Space | O(n^2) Time */
 function twoNumberSum1(array, target) {
     for (n1 of array) {
         for (n2 of array) {
@@ -55,7 +55,7 @@ function twoNumberSum1(array, target) {
     return [];
 }
 
-/** O(n) Space and O(n) Time */
+/** O(n) Space | O(n) Time */
 function twoNumberSum2(array, target) {
     const items = {};
     for (const item of array) {
@@ -82,7 +82,7 @@ function twoNumberSum2(array, target) {
  * numbers [2, 4]. Note that a single number in an array and the array itself
  * are both valid subsequences of the array. */
 
-/** O(1) Space and O(n) Time */
+/** O(1) Space | O(n) Time */
 function isValidSubsequence(array, sequence) {
     let next = 0;
     for (const number of array) {
@@ -94,4 +94,27 @@ function isValidSubsequence(array, sequence) {
         }
     }
     return false;
+}
+
+/** 6. Write a function that takes in a non-empty array of integers that are sorted
+ * in ascending order and returns a new array of the same length with the
+ * squares of the original integers also sorted in ascending order. */
+
+/** O(n) Space | O(n) Time */
+function sortedSquaresArray(array) {
+    const sortedSquares = new Array(array.length).fill(0);
+    let left = 0;
+    let right = array.length - 1;
+    for (let i = array.length - 1; i >= 0; i--) {
+        const absoluteLeftValue = Math.abs(array[left]);
+        const absoluteRightValue = Math.abs(array[right]);
+        if (absoluteLeftValue >= absoluteRightValue) {
+            sortedSquares[i] = absoluteLeftValue ** 2;
+            left++;
+        } else {
+            sortedSquares[i] = absoluteRightValue ** 2;
+            right--;
+        }
+    }
+    return sortedSquares;
 }
