@@ -23,15 +23,46 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 
-/** 3. The Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21... The nth Fibonacci
- * number is the sum of the previous two Fibonacci numbers. Design and write a
- * recursive algorithm that determines the nth Fibonacci number. */
+/** 3. The Fibonacci sequence is defined as follows: the first number of the
+ * sequence is 0, the second number is 1, and the nth number is the sum of the
+ * (n - 1)th and (n - 2)th numbers. Write a function that takes in an integer n
+ * and returns the nth Fibonacci number. Important note: the Fibonacci sequence
+ * is often defined with its first two numbers as F0 = 0 and F1 = 1. For the
+ * purpose of this question, the first Fibonacci number is F0; therefore,
+ * getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, etc..*/
 
-function fibonacci(n) {
-    if (n === 1 || n === 2) {
+/** O(n) Space | O(2^n) Time */
+function getNthFib1(n) {
+    if (n === 1) {
+        return 0;
+    } else if (n === 2) {
         return 1;
+    } else {
+        return getNthFib1(n - 1) + getNthFib1(n - 2);
     }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+/** O(n) Space | O(n) Time */
+function getNthFib2(n, memo = { 1: 0, 2: 1 }) {
+    if (n in memo) {
+        return memo[n];
+    } else {
+        memo[n] = getNthFib2(n - 1, memo) + getNthFib2(n - 2, memo);
+    }
+    return memo[n];
+}
+
+/** O(1) Space | O(n) Time */
+function getNthFib3(n) {
+    const lastTwo = [0, 1];
+    let counter = 3;
+    while (counter <= n) {
+        nextFib = lastTwo[0] + lastTwo[1];
+        lastTwo[0] = lastTwo[1];
+        lastTwo[1] = nextFib;
+        counter += 1;
+    }
+    return n > 1 ? lastTwo[1] : lastTwo[0];
 }
 
 /** 4. Write a function that takes in a non-empty array of distinct integers and an
