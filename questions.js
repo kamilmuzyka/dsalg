@@ -336,6 +336,11 @@ function removeDuplicatesFromLinkedList(linkedList) {
 function firstNonRepeatingCharacter(string) {
     const characters = {};
     for (character of string) {
+        /** If a character already occurs in the HashMap, set it to true,
+         * otherwise, put it there and set it to false. True as a value of a
+         * character stored in the HashMap means that the character occurred
+         * more than once in the input string, false means that it occurred
+         * exactly once. */
         characters[character] = character in characters;
     }
     for (character in characters) {
@@ -344,4 +349,37 @@ function firstNonRepeatingCharacter(string) {
         }
     }
     return -1;
+}
+
+/** 12. Write a function that takes in an array of at least three integers and,
+ * without sorting the input array, returns a sorted array of the three largest
+ * integers in the input array. The function should return duplicate integers if
+ * necessary; for example, it should return [10, 10, 12] for an input array of
+ * [10, 5, 9, 10, 12]. */
+
+/** O(1) Space | O(n) Time */
+function findThreeLargestNumbers(array) {
+    const largestNumbers = new Array(3).fill(-Infinity);
+    for (number of array) {
+        if (number > largestNumbers[2]) {
+            /** Case 1: a number is larger than the largest number in the
+             * largestNumbers array; shift everything to the left and overwrite
+             * the largest number. */
+            largestNumbers[0] = largestNumbers[1];
+            largestNumbers[1] = largestNumbers[2];
+            largestNumbers[2] = number;
+        } else if (number > largestNumbers[1]) {
+            /** Case 2: a number is larger than the middle number in the
+             * largestNumbers array; shift first and middle numbers to the
+             * left and overwrite the middle number. */
+            largestNumbers[0] = largestNumbers[1];
+            largestNumbers[1] = number;
+        } else if (number > largestNumbers[0]) {
+            /** Case 3: a number is larger than the first number in the
+             * largestNumbers array; overwrite the first number without shifting
+             * anything. */
+            largestNumbers[0] = number;
+        }
+    }
+    return largestNumbers;
 }
