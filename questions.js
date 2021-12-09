@@ -335,7 +335,7 @@ function removeDuplicatesFromLinkedList(linkedList) {
 /** O(1) Space | O(n) Time */
 function firstNonRepeatingCharacter(string) {
     const characters = {};
-    for (character of string) {
+    for (const character of string) {
         /** If a character already occurs in the HashMap, set it to true,
          * otherwise, put it there and set it to false. True as a value of a
          * character stored in the HashMap means that the character occurred
@@ -343,7 +343,7 @@ function firstNonRepeatingCharacter(string) {
          * exactly once. */
         characters[character] = character in characters;
     }
-    for (character in characters) {
+    for (const character in characters) {
         if (characters[character] === false) {
             return string.indexOf(character);
         }
@@ -360,7 +360,7 @@ function firstNonRepeatingCharacter(string) {
 /** O(1) Space | O(n) Time */
 function findThreeLargestNumbers(array) {
     const largestNumbers = new Array(3).fill(-Infinity);
-    for (number of array) {
+    for (const number of array) {
         if (number > largestNumbers[2]) {
             /** Case 1: a number is larger than the largest number in the
              * largestNumbers array; shift everything to the left and overwrite
@@ -382,4 +382,39 @@ function findThreeLargestNumbers(array) {
         }
     }
     return largestNumbers;
+}
+
+/** 13. You're given a string of available characters and a string representing a
+ * document that you need to generate. Write a function that determines if you
+ * can generate the document using the available characters. If you can generate
+ * the document, your function should return true; otherwise, it should return
+ * false. You're only able to generate the document if the frequency of unique
+ * characters in the characters string is greater than or equal to the frequency
+ * of unique characters in the document string. For example, if you're given
+ * characters = "abcabc" and document = "aabbccc" you cannot generate the
+ * document because you're missing one c. The document that you need to create
+ * may contain any characters, including special characters, capital letters,
+ * numbers, and spaces. */
+
+/** O(1) Space | O(n + m) Time */
+function generateDocument(characters, document) {
+    const availableCharacters = {};
+    for (const character of characters) {
+        if (character in availableCharacters) {
+            availableCharacters[character] += 1;
+        } else {
+            availableCharacters[character] = 1;
+        }
+    }
+    for (const character of document) {
+        if (
+            !(character in availableCharacters) ||
+            availableCharacters[character] <= 0
+        ) {
+            return false;
+        } else {
+            availableCharacters[character] -= 1;
+        }
+    }
+    return true;
 }
