@@ -99,6 +99,7 @@ function twoNumberSum2(array, target) {
     }
     return [];
 }
+
 /** Hint:
  *  x + y = z <=> y = z - x
  *  x - array item
@@ -447,3 +448,42 @@ function distinctPairs(array, target) {
     }
     return p;
 }
+
+/** 15. Given an array of integers between 1 and n, inclusive, where n is the length
+ * of the array, write a function that returns the first integer that appears
+ * more than once (when the array is read from left to right). In other words,
+ * out of all the integers that might occur more than once in the input array,
+ * your function should return the one whose first duplicate value has the
+ * minimum index. If no integer appears more than once, your function should
+ * return -1. Note that you're allowed to mutate the input array. */
+
+/** O(n) Space | O(n) Time */
+function firstDuplicateValue1(array) {
+    const numbers = {};
+    for (const number of array) {
+        if (number in numbers) {
+            return number;
+        } else {
+            numbers[number] = true;
+        }
+    }
+    return -1;
+}
+
+/** O(1) Space | O(n) Time */
+function firstDuplicateValue2(array) {
+    for (const number of array) {
+        const mappedIndex = Math.abs(number) - 1;
+        if (array[mappedIndex] < 0) {
+            return Math.abs(number);
+        }
+        array[mappedIndex] *= -1;
+    }
+    return -1;
+}
+
+/** Hint: We know that all the numbers from the input array are positive (1 to
+ * n), and we are allowed to mutate the input array. Therefore, we can use
+ * negatives as flags that mark numbers that we have visited. We can then check
+ * if a number is a duplicate by mapping it to an index and checking if a number
+ * stored at that index is negative. */
