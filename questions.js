@@ -418,3 +418,32 @@ function generateDocument(characters, document) {
     }
     return true;
 }
+
+/** 14. Determine the number of distinct pairs of elements in the array that sum to
+ * the target value. For instance, given the array [1, 2, 3, 4, 5, 5, 5, 5, 6,
+ * 7, 8, 9, 1, 9], and a target value of 10, the five pairs [1,9], [2,8], [3,7]
+ * and [4,6] and [5, 5] all sum to 10. Note that the pair [1, 9] at indexes 0
+ * and 11 is indistinct from any other combination of 9 and 1 from indexes 0,
+ * 11, 12 and 13. Also, note that [5, 5] pairs from indexes 4, 5, 6 and 7 are
+ * indistinct. All permutations creating pairs from these four elements count as
+ * one pair as well, e.g. [1, 5] and [5, 1] are considered the same. */
+
+/** O(n) Space | O(n) Time */
+function distinctPairs(array, target) {
+    const numbers = {};
+    const pairs = {};
+    let p = 0;
+    for (const number of array) {
+        const candidate = target - number;
+        if (
+            candidate in numbers &&
+            !([candidate, number] in pairs || [number, candidate] in pairs)
+        ) {
+            pairs[[candidate, number]] = true;
+            p++;
+        } else {
+            numbers[number] = number;
+        }
+    }
+    return p;
+}

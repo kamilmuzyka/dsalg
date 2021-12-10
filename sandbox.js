@@ -5,7 +5,7 @@
  * an empty array. Note that the target sum has to be obtained by summing two
  * different integers in the array; you can't add a single integer to itself in
  * order to obtain the target sum. You can assume that there will be at most one
- * pair of numbers summing up to the target sum. */
+ * pair of numbers summing up to the target sum. (09.12.2021) */
 
 function twoNumberSum(array, target) {}
 
@@ -15,13 +15,13 @@ function twoNumberSum(array, target) {}
  * but that are in the same order as they appear in the array. For instance, the
  * numbers [1, 3, 4] form a subsequence of the array [1, 2, 3, 4], and so do the
  * numbers [2, 4]. Note that a single number in an array and the array itself
- * are both valid subsequences of the array. */
+ * are both valid subsequences of the array. (09.12.2021) */
 
 function isValidSubsequence(array, sequence) {}
 
 /** 6. Write a function that takes in a non-empty array of integers that are sorted
  * in ascending order and returns a new array of the same length with the
- * squares of the original integers also sorted in ascending order. */
+ * squares of the original integers also sorted in ascending order. (09.12.2021) */
 
 function sortedSquaresArray(array) {}
 
