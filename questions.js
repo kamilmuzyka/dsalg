@@ -487,3 +487,28 @@ function firstDuplicateValue2(array) {
  * negatives as flags that mark numbers that we have visited. We can then check
  * if a number is a duplicate by mapping it to an index and checking if a number
  * stored at that index is negative. */
+
+/** 16. Write a function that takes in an array of integers and returns a boolean
+ * representing whether the array is monotonic. An array is said to be monotonic
+ * if its elements, from left to right, are entirely non-increasing or entirely
+ * non-decreasing. Non-increasing elements aren't necessarily exclusively
+ * decreasing; they simply don't increase. Similarly, non-decreasing elements
+ * aren't necessarily exclusively increasing; they simply don't decrease. Note
+ * that empty arrays and arrays of one element are monotonic. */
+
+/** O(1) Space | O(n) Time */
+function isMonotonic(array) {
+    let isIncreasing = null;
+    for (let i = 0; i < array.length; i++) {
+        if (isIncreasing === null && i > 0 && array[i] !== array[i - 1]) {
+            isIncreasing = array[i] > array[i - 1];
+            continue;
+        }
+        if (isIncreasing && array[i] < array[i - 1]) {
+            return false;
+        } else if (!isIncreasing && array[i] > array[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
