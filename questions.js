@@ -156,7 +156,7 @@ function sortedSquaresArray(array) {
  * the BST. */
 
 /** O(logn) or O(n) Space | O(logn) or O(n) Time */
-function findClosestValueInBst(tree, target) {
+function findClosestValueInBst1(tree, target) {
     return findClosestValueInBstHelper(tree, target, Infinity);
 }
 
@@ -164,17 +164,36 @@ function findClosestValueInBstHelper(tree, target, closest) {
     if (!tree) {
         return closest;
     }
-    const current = tree.value;
-    if (Math.abs(target - current) < Math.abs(target - closest)) {
-        closest = current;
+    const current = tree;
+    if (Math.abs(target - current.value) < Math.abs(target - closest)) {
+        closest = current.value;
     }
-    if (target < current) {
-        return findClosestValueInBstHelper(tree.left, target, closest);
-    } else if (target > current) {
-        return findClosestValueInBstHelper(tree.right, target, closest);
+    if (target < current.value) {
+        return findClosestValueInBstHelper(current.left, target, closest);
+    } else if (target > current.value) {
+        return findClosestValueInBstHelper(current.right, target, closest);
     } else {
         return closest;
     }
+}
+
+/** O(1) Space | O(logn) or O(n) Time */
+function findClosestValueInBst2(tree, target) {
+    let current = tree;
+    let closest = Infinity;
+    while (current) {
+        if (Math.abs(target - current.value) < Math.abs(target - closest)) {
+            closest = current.value;
+        }
+        if (target < current.value) {
+            current = current.left;
+        } else if (target > current.value) {
+            current = current.right;
+        } else {
+            return current.value;
+        }
+    }
+    return closest;
 }
 
 /** 8. Write a BST class for a Binary Search Tree. The class should support:

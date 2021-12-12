@@ -27,9 +27,33 @@ function sortedSquaresArray(array) {}
 
 /** 7. Write a function that takes in a Binary Search Tree (BST) and a target
  * integer value and returns the closest value to that target value contained in
- * the BST. */
+ * the BST. (11.12.2021) */
 
 function findClosestValueInBst(tree, target) {}
+
+/** 8. Write a BST class for a Binary Search Tree. The class should support:
+ * - Inserting values with the insert method.
+ * - Removing values with the remove method; this method should only remove the
+ *   first instance of a given value.
+ * - Searching for values with the contains method. (11.12.2021)*/
+
+class BST {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+
+    insert(value) {
+        return this;
+    }
+
+    contains(value) {}
+
+    remove(value) {
+        return this;
+    }
+}
 
 /** 9. Write a function that takes in a non-empty string and that returns a boolean
  * representing whether the string is a palindrome. A palindrome is defined as a
