@@ -1,3 +1,13 @@
+/** 3. The Fibonacci sequence is defined as follows: the first number of the
+ * sequence is 0, the second number is 1, and the nth number is the sum of the
+ * (n - 1)th and (n - 2)th numbers. Write a function that takes in an integer n
+ * and returns the nth Fibonacci number. Important note: the Fibonacci sequence
+ * is often defined with its first two numbers as F0 = 0 and F1 = 1. For the
+ * purpose of this question, the first Fibonacci number is F0; therefore,
+ * getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, etc.. */
+
+function getNthFib1(n) {}
+
 /** 4. Write a function that takes in a non-empty array of distinct integers and an
  * integer representing a target sum. If any two numbers in the input array sum
  * up to the target sum, the function should return them in an array, in any
@@ -35,7 +45,7 @@ function findClosestValueInBst(tree, target) {}
  * - Inserting values with the insert method.
  * - Removing values with the remove method; this method should only remove the
  *   first instance of a given value.
- * - Searching for values with the contains method. (11.12.2021)*/
+ * - Searching for values with the contains method. (11.12.2021) */
 
 class BST {
     constructor(value) {
@@ -58,7 +68,7 @@ class BST {
 /** 9. Write a function that takes in a non-empty string and that returns a boolean
  * representing whether the string is a palindrome. A palindrome is defined as a
  * string that's written the same forward and backward. Note that
- * single-character strings are palindromes. */
+ * single-character strings are palindromes. (13.12.2021) */
 
 function isPalindrome(string) {}
 
@@ -69,7 +79,7 @@ function isPalindrome(string) {}
  * create a brand new list), and the modified Linked List should still have its
  * nodes sorted with respect to their values. Each LinkedList node has an
  * integer value as well as a next property pointing to the next node in the
- * list or to null if it's the tail of the list. */
+ * list or to null if it's the tail of the list. (13.12.2021) */
 
 function removeDuplicatesFromLinkedList(linkedList) {}
 
@@ -77,7 +87,7 @@ function removeDuplicatesFromLinkedList(linkedList) {}
  * letters and returns the index of the string's first non-repeating character.
  * The first non-repeating character is the first character in a string that
  * occurs only once. If the input string doesn't have any non-repeating
- * characters, your function should return -1. */
+ * characters, your function should return -1. (13.12.2021) */
 
 function firstNonRepeatingCharacter(string) {}
 

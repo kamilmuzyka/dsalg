@@ -29,7 +29,7 @@ function factorial(n) {
  * and returns the nth Fibonacci number. Important note: the Fibonacci sequence
  * is often defined with its first two numbers as F0 = 0 and F1 = 1. For the
  * purpose of this question, the first Fibonacci number is F0; therefore,
- * getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, etc..*/
+ * getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, etc.. */
 
 /** O(n) Space | O(2^n) Time */
 function getNthFib1(n) {
@@ -530,4 +530,32 @@ function isMonotonic(array) {
         }
     }
     return true;
+}
+
+/** 17. You're given a Node class that has a name and an array of optional children
+ * nodes. When put together, nodes form an acyclic tree-like structure.
+ * Implemetnthe depthFirstSearch method on the Node class, which takes in an
+ * empty array, traverses the tree using the Depth-first Search approach
+ * (specifically navigating the tree from left to right), stores all of the
+ * nodes' names in the input array, and returns it. */
+
+/** O(v) Space | O(v + e) Time */
+class Node {
+    constructor(name) {
+        this.name = name;
+        this.children = [];
+    }
+
+    addChild(name) {
+        this.children.push(new Node(name));
+        return this;
+    }
+
+    depthFirstSearch(array) {
+        array.push(this.name);
+        for (const child of this.children) {
+            child.depthFirstSearch(array);
+        }
+        return array;
+    }
 }
